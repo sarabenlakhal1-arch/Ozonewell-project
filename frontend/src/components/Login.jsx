@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import API_URL from '../config'; // <--- 1. Importation de l'URL centralisée
 import './Login.css';
 
 const Login = () => {
@@ -18,7 +19,8 @@ const Login = () => {
         setIsLoading(true);
 
         try {
-            const response = await fetch('http://127.0.0.1:8000/api/login', {
+            // <--- 2. Utilisation de la variable API_URL
+            const response = await fetch(`${API_URL}/api/login`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(credentials)

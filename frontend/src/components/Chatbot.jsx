@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import API_URL from '../config'; // <--- 1. Importation de l'URL centralisée
 import './Chatbot.css';
 
 const Chatbot = () => {
@@ -21,12 +22,12 @@ const Chatbot = () => {
     // Affichage immédiat du message de l'utilisateur
     const userMsg = { text: input, isBot: false };
     setMessages(prev => [...prev, userMsg]);
-    const currentInput = input; // On garde une copie
+    const currentInput = input; 
     setInput("");
 
     try {
-      // Appel à ton API Python sur le port 8000
-      const response = await fetch('http://localhost:8001/chat', {
+      // <--- 2. Utilisation de la variable API_URL pour la route /chat
+      const response = await fetch(`${API_URL}/chat`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ text: currentInput }),
@@ -39,9 +40,9 @@ const Chatbot = () => {
       // Ajout de la réponse intelligente du bot
       setMessages(prev => [...prev, { text: data.reply, isBot: true }]);
     } catch (error) {
-      // Message en cas de serveur Python éteint
+      // Message en cas de serveur injoignable
       setMessages(prev => [...prev, { 
-        text: "Désolé, je rencontre des difficultés à me connecter. Vérifiez que le serveur Python est lancé.", 
+        text: "Désolé, je rencontre des difficultés à me connecter au service d'IA.", 
         isBot: true 
       }]);
       console.error("Erreur Chatbot:", error);
@@ -54,7 +55,6 @@ const Chatbot = () => {
         <div className="chat-window">
           <div className="chat-header">
             <div className="header-info">
-              {/* Icône Robot SVG */}
               <svg className="bot-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <rect x="3" y="11" width="18" height="10" rx="2"/>
                 <circle cx="12" cy="5" r="2"/>
@@ -86,7 +86,6 @@ const Chatbot = () => {
               placeholder="Écrivez ici..." 
             />
             <button className="send-btn" onClick={handleSend}>
-              {/* Icône Envoyer SVG */}
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/>
               </svg>
@@ -97,12 +96,10 @@ const Chatbot = () => {
 
       <button className="chat-toggle" onClick={() => setIsOpen(!isOpen)}>
         {isOpen ? (
-           /* Icône Fermer SVG */
            <svg viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" width="24">
              <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
            </svg>
         ) : (
-          /* Icône Message SVG */
           <svg viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" width="28">
             <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
           </svg>

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import API_URL from '../config'; // <--- 1. Importation de l'URL centralisée
 import './AdminPanel.css';
 
 // --- ICONES SVG ---
@@ -29,7 +30,8 @@ const AdminPanel = () => {
 
     const fetchProducts = async () => {
         try {
-            const response = await fetch('http://127.0.0.1:8000/api/products');
+            // <--- 2. Utilisation de la variable API_URL
+            const response = await fetch(`${API_URL}/api/products`);
             if (response.ok) {
                 const data = await response.json();
                 setProducts(data);
@@ -48,7 +50,6 @@ const AdminPanel = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         
-        // Utilisation de FormData pour envoyer texte + image (multipart/form-data)
         const data = new FormData();
         data.append('name', formData.name);
         data.append('power', formData.power);
@@ -56,13 +57,13 @@ const AdminPanel = () => {
         data.append('category', formData.category);
         
         if (formData.image) {
-            // Le nom 'file' doit correspondre exactement à l'argument dans FastAPI
             data.append('file', formData.image);
         }
 
+        // <--- 3. Utilisation de la variable pour l'URL de POST ou PUT
         const url = editingProduct 
-            ? `http://127.0.0.1:8000/api/products/${editingProduct.id}` 
-            : 'http://127.0.0.1:8000/api/products';
+            ? `${API_URL}/api/products/${editingProduct.id}` 
+            : `${API_URL}/api/products`;
         
         const method = editingProduct ? 'PUT' : 'POST';
 
@@ -70,7 +71,6 @@ const AdminPanel = () => {
             const response = await fetch(url, { 
                 method: method, 
                 body: data 
-                // IMPORTANT: On ne définit PAS de headers ici, le navigateur le fait seul
             });
 
             if (!response.ok) {
@@ -79,7 +79,7 @@ const AdminPanel = () => {
             } else {
                 console.log("Produit enregistré avec succès !");
                 closeModal();
-                fetchProducts(); // Rafraîchit la liste immédiatement
+                fetchProducts();
             }
         } catch (error) { 
             console.error("Erreur lors de l'envoi:", error);
@@ -90,7 +90,8 @@ const AdminPanel = () => {
     const handleDelete = async (id) => {
         if(window.confirm("Êtes-vous sûr de vouloir supprimer ce produit ?")) {
             try {
-                const response = await fetch(`http://127.0.0.1:8000/api/products/${id}`, { 
+                // <--- 4. Utilisation de la variable pour DELETE
+                const response = await fetch(`${API_URL}/api/products/${id}`, { 
                     method: 'DELETE' 
                 });
                 if (response.ok) fetchProducts();
@@ -100,6 +101,7 @@ const AdminPanel = () => {
         }
     };
 
+    // ... (Le reste du code reste identique)
     const openModal = (product = null) => {
         if (product) {
             setEditingProduct(product);

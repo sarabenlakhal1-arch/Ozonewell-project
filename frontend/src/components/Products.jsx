@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import API_URL from '../config'; // <--- 1. Importation de l'URL centralisée
 import './Products.css';
 
 // Importation de votre logo pour servir d'image par défaut
@@ -10,11 +11,12 @@ const Products = () => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  // Chargement des données depuis l'API FastAPI
+  // Chargement des données depuis l'API
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await fetch('http://127.0.0.1:8000/api/products');
+        // <--- 2. Utilisation de la variable API_URL
+        const response = await fetch(`${API_URL}/api/products`);
         const data = await response.json();
         setProducts(data);
       } catch (error) {
@@ -33,6 +35,16 @@ const Products = () => {
   // Filtrage automatique par catégorie
   const ozoneGenerators = products.filter(p => p.category === 'Ozone');
   const airPurifiers = products.filter(p => p.category === 'Purificateur');
+
+  // Fonction utilitaire pour gérer l'URL de l'image
+  const getImageUrl = (imagePath) => {
+    if (!imagePath || imagePath === "") return defaultLogo;
+    // Si l'image est un chemin relatif commençant par /static ou uploads, on ajoute l'URL du serveur
+    if (imagePath.startsWith('/') || !imagePath.startsWith('http')) {
+      return `${API_URL}${imagePath}`;
+    }
+    return imagePath;
+  };
 
   const techInfo = [
     {
@@ -88,7 +100,7 @@ const Products = () => {
               <div key={p.id} className="product-card" onClick={handleCardClick}>
                 <div className="product-image-container">
                   <img 
-                    src={p.image_url && p.image_url !== "" ? p.image_url : defaultLogo} 
+                    src={getImageUrl(p.image_url)} // <--- Utilisation de la fonction utilitaire
                     alt={p.name} 
                     className="product-img" 
                     onError={(e) => { e.target.src = defaultLogo; }}
@@ -116,7 +128,7 @@ const Products = () => {
               <div key={p.id} className="product-card" onClick={handleCardClick}>
                 <div className="product-image-container">
                   <img 
-                    src={p.image_url && p.image_url !== "" ? p.image_url : defaultLogo} 
+                    src={getImageUrl(p.image_url)} // <--- Utilisation de la fonction utilitaire
                     alt={p.name} 
                     className="product-img" 
                     onError={(e) => { e.target.src = defaultLogo; }}
