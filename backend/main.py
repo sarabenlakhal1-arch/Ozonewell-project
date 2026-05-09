@@ -13,8 +13,9 @@ app = FastAPI()
 # 1. CONFIGURATION DE SÉCURITÉ (CORS) - CONNEXION AVEC VERCEL
 # C'est ici qu'on autorise ton site Vercel à communiquer avec ton API Render
 origins = [
-    "http://localhost:5173",                   # Pour tes tests locaux
+#    "http://localhost:5173",                   # Pour tes tests locaux
     "https://ozonewell-project.vercel.app",    # TON LIEN VERCEL
+    "https://salvage-factual-stonework.ngrok-free.dev",
 ]
 
 app.add_middleware(
