@@ -145,9 +145,7 @@
   letter-spacing: 1px;
 }
 
-.oz-submit-btn:isctive {
-  background: #083369;
-}
+
 
 .oz-submit-btn:disabled {
   background-color: #cccccc; 
