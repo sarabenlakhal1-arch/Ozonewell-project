@@ -1,0 +1,195 @@
+.sport-page-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  font-family: Arial, sans-serif;
+  color: #333;
+}
+
+.breadcrumb-hint {
+  font-size: 13px;
+  color: #888;
+  border-bottom: 1px dotted #ccc;
+  margin-bottom: 20px;
+}
+
+.sport-main-title {
+  color: #444;
+  font-size: 26px;
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+
+/* Flexbox Header */
+.sport-section-flex {
+  display: flex;
+  gap: 40px;
+  margin-bottom: 40px;
+}
+
+/* Style de cadre avec bordure 10px */
+.sport-frame-square {
+  width: 350px;
+  height: 350px;
+  flex-shrink: 0;
+  position: relative;
+  overflow: hidden;
+  border-radius: 50px 15px 50px 15px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.sport-frame-square.small {
+  width: 300px;
+  height: 350px;
+}
+
+.sport-frame-square img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.sport-frame-square::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  border: 10px solid #ffffff;
+  border-radius: 50px 15px 50px 15px;
+  pointer-events: none;
+}
+
+.sport-slogan-blue {
+  color: #008cc1;
+  font-style: italic;
+  font-size: 21px;
+  font-weight: 800;
+  margin-bottom: 20px;
+}
+
+.sport-top-list {
+  list-style: none;
+  padding: 0;
+}
+
+.sport-top-list li {
+  margin-bottom: 12px;
+  padding-left: 20px;
+  position: relative;
+  font-size: 15px;
+}
+
+.sport-top-list li::before {
+  content: "•";
+  color: #008cc1;
+  position: absolute;
+  left: 0;
+}
+
+/* HABILLAGE DE TEXTE (Float) */
+.sport-wrap-container {
+  display: block;
+  width: 100%;
+}
+
+.sport-image-wrap-left {
+  float: left;
+  margin-right: 30px;
+  margin-bottom: 15px;
+}
+
+.sport-wrap-text p {
+  font-size: 15px;
+  line-height: 1.7;
+  margin-bottom: 15px;
+  text-align: justify;
+}
+
+.sport-section-title {
+  color: #008cc1;
+  font-size: 22px;
+  margin: 40px 0 25px 0;
+}
+
+.sport-sub-title {
+  font-size: 18px;
+  color: #008cc1;
+  margin-top: 25px;
+  font-weight: bold;
+}
+
+/* Bouton */
+.sport-footer-action {
+  text-align: center;
+  margin: 40px 0;
+}
+
+.sport-btn-blue {
+  background: linear-gradient(to bottom, #008cc1, #005a80);
+  color: white;
+  border: none;
+  padding: 18px 45px;
+  border-radius: 50px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 5px 0 #003a52;
+}
+
+/* Cadre Bleu Avantages */
+.sport-advantages-box {
+  background-color: #008cc1;
+  color: white;
+  padding: 40px;
+  border-radius: 15px;
+  margin-top: 50px;
+}
+
+.sport-adv-title {
+  font-size: 20px;
+  border-bottom: 1px solid rgba(255,255,255,0.3);
+  padding-bottom: 15px;
+  margin-bottom: 25px;
+}
+
+.sport-adv-flex {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.sport-check-list {
+  list-style: none;
+  padding: 0;
+  flex: 1;
+}
+
+.sport-check-list li {
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+}
+
+.sport-check-list li::before {
+  content: "✓";
+  margin-right: 15px;
+  font-weight: bold;
+}
+
+.sport-circle-frame img {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  border: 5px solid white;
+  object-fit: cover;
+}
+
+/* Clearfix */
+.sport-problems-section::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+@media (max-width: 850px) {
+  .sport-section-flex, .sport-adv-flex { flex-direction: column; }
+  .sport-image-wrap-left { float: none; margin: 0 auto 20px auto; display: flex; justify-content: center; }
+}

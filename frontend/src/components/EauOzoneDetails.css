@@ -1,0 +1,131 @@
+.water-page-container {
+  max-width: 900px; /* Largeur de page réduite pour centrer les cartes */
+  margin: 0 auto;
+  padding: 40px 20px;
+  font-family: Arial, sans-serif;
+  color: #333;
+}
+
+
+
+.water-main-title {
+  color: #008cc1;
+  font-size: 30px;
+  font-weight: bold;
+  margin-bottom: 40px;
+}
+
+.water-slogan-box {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.water-slogan-text {
+  color: #008cc1;
+  font-style: italic;
+  font-size: 26px;
+  font-weight: 800;
+  line-height: 1.3;
+}
+
+.blue-highlight {
+  color: #005a80;
+  font-size: 20px;
+  margin-bottom: 40px;
+}
+
+/* Grille des cartes */
+.water-flex-row {
+  display: flex;
+  gap: 40px;
+  margin-bottom: 50px;
+  justify-content: center;
+}
+
+.water-card-unit {
+  flex: 0 1 350px; /* Fixe la largeur de la carte */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* IMAGES CARRÉES 350x350 AVEC BORDURE DE 10PX */
+.water-frame-square {
+  width: 350px;
+  height: 350px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 50px 15px 50px 15px; /* Design bulle ASP */
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+.water-frame-square img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Remplit le carré sans déformer */
+}
+
+/* LA BORDURE BLANCHE DE 10PX (qui mange sur la photo) */
+.water-frame-square::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border: 10px solid #ffffff; /* Bordure de 10px demandée */
+  border-radius: 50px 15px 50px 15px;
+  pointer-events: none;
+}
+
+.water-card-info h3 {
+  color: #008cc1;
+  font-size: 19px;
+  text-decoration: underline;
+  margin: 15px 0 10px 0;
+  font-weight: bold;
+  text-align: center;
+}
+
+.water-card-info p {
+  font-size: 14px;
+  text-align: center;
+  color: #555;
+  line-height: 1.5;
+}
+
+/* Footer et Bouton Bleu */
+.water-footer-section {
+  text-align: center;
+  margin-top: 60px;
+  padding: 40px;
+  background-color: #fcfcfc;
+  border-radius: 30px;
+}
+
+.water-btn-blue {
+  background: linear-gradient(to bottom, #008cc1, #005a80);
+  color: white;
+  border: none;
+  padding: 16px 40px;
+  border-radius: 50px;
+  font-weight: bold;
+  text-transform: uppercase;
+  cursor: pointer;
+  box-shadow: 0 4px 0 #003a52;
+  margin-top: 20px;
+  transition: transform 0.2s;
+}
+
+.water-btn-blue:active {
+  transform: translateY(2px);
+  box-shadow: 0 2px 0 #003a52;
+}
+
+/* Responsive */
+@media (max-width: 850px) {
+  .water-flex-row {
+    flex-direction: column;
+    align-items: center;
+  }
+}

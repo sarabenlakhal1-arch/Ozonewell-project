@@ -1,0 +1,280 @@
+.etab-page-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  font-family: 'Arial', sans-serif;
+}
+
+.breadcrumb-hint {
+  font-size: 14px;
+  color: #888;
+  border-bottom: 1px dotted #ccc;
+  margin-bottom: 25px;
+}
+
+.etab-main-title {
+  color: #444;
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 40px;
+  line-height: 1.4;
+}
+
+/* SECTION HAUTE */
+.etab-section-flex {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+  margin-bottom: 50px;
+}
+
+.etab-frame-square {
+  width: 350px;
+  height: 350px;
+  flex-shrink: 0;
+  position: relative;
+  overflow: hidden;
+  border-radius: 50px 15px 50px 15px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.etab-frame-square img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.etab-frame-square::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  border: 10px solid #ffffff; /* Bordure 10px */
+  border-radius: 50px 15px 50px 15px;
+  pointer-events: none;
+}
+
+.etab-slogan-blue {
+  color: #008cc1;
+  font-size: 19px;
+  font-weight: bold;
+  margin: 20px 0;
+}
+
+.etab-list {
+  list-style: none;
+  padding: 0;
+}
+
+.etab-list li {
+  margin-bottom: 10px;
+  padding-left: 20px;
+  position: relative;
+  font-size: 15px;
+}
+
+.etab-list li::before {
+  content: "•";
+  color: #008cc1;
+  position: absolute;
+  left: 0;
+}
+
+/* BOUTON */
+.etab-footer {
+  text-align: center;
+  margin: 40px 0;
+}
+
+.etab-btn-blue {
+  background: linear-gradient(to bottom, #008cc1, #005a80);
+  color: white;
+  border: none;
+  padding: 18px 40px;
+  border-radius: 50px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 5px 0 #003a52;
+}
+
+/* SECTION AVANTAGES BLEUE */
+.etab-advantages-section {
+  margin-top: 60px;
+  display: flex;
+  justify-content: center;
+}
+
+.etab-advantages-card {
+  background-color: #008cc1;
+  color: white;
+  padding: 40px;
+  border-radius: 10px;
+  width: 100%;
+}
+
+/* TITRE AU-DESSUS */
+.etab-advantages-title {
+  font-size: 22px;
+  margin-bottom: 30px;
+  text-align: left;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  padding-bottom: 15px;
+}
+
+/* CONTENU (Liste à gauche, Cercle à droite) */
+.etab-advantages-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 30px;
+}
+
+/* --- CSS POUR LA NOUVELLE SECTION --- */
+
+.office-problems-section {
+  margin: 60px 0;
+  text-align: left;
+}
+
+.office-problems-main-title {
+  color: #008cc1;
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 40px;
+  text-align: center; /* Titre principal centré */
+}
+
+.office-problems-flex {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+}
+
+/* Espace pour la photo à gauche (350px comme dans ton exemple industrie) */
+.office-problems-image-placeholder {
+  width: 350px;
+  flex-shrink: 0;
+}
+
+.office-problems-text {
+  flex: 1;
+}
+
+.problem-item {
+  margin-bottom: 25px;
+}
+
+.problem-item h3 {
+  color: #333;
+  font-size: 19px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 5px;
+}
+
+.problem-item p {
+  font-size: 15px;
+  line-height: 1.6;
+  color: #555;
+  margin-bottom: 10px;
+  text-align: justify;
+}
+
+/* Liste des virus et bactéries */
+.virus-list-box {
+  background: #f9f9f9;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 25px;
+  font-size: 14px;
+  border-left: 4px solid #008cc1;
+}
+
+.virus-list-box ul {
+  margin-top: 10px;
+  list-style: square;
+  padding-left: 20px;
+}
+
+.final-problem-conclusion {
+  font-style: italic;
+  font-weight: bold;
+  color: #008cc1;
+  margin-top: 20px;
+}
+
+/* Style du cadre photo (récupéré de ton code précédent) */
+.office-frame-square {
+  margin-top: 320px;
+  width: 350px;
+  height: 250px; /* Plus haut pour couvrir le texte */
+  position: relative;
+  overflow: hidden;
+  border-radius: 50px 15px 50px 15px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.office-frame-square img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.office-frame-square::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  border: 10px solid #ffffff;
+  border-radius: 50px 15px 50px 15px;
+  pointer-events: none;
+}
+
+/* Responsive pour mobile */
+@media (max-width: 900px) {
+  .office-problems-flex {
+    flex-direction: column;
+    align-items: center;
+  }
+  .office-problems-image-placeholder {
+    width: 100%;
+    max-width: 350px;
+    margin-bottom: 30px;
+  }
+}
+
+.etab-adv-list {
+  list-style: none;
+  padding: 0;
+  flex: 1;
+}
+
+.etab-adv-list li {
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+}
+
+.etab-adv-list li::before {
+  content: '▶';
+  font-size: 12px;
+  margin-right: 15px;
+}
+
+.etab-image-circle {
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  border: 6px solid white;
+  object-fit: cover;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+@media (max-width: 850px) {
+  .etab-section-flex, .etab-advantages-content { 
+    flex-direction: column; 
+    text-align: center; 
+  }
+  .etab-advantages-title { text-align: center; }
+  .etab-adv-list li { justify-content: center; }
+}

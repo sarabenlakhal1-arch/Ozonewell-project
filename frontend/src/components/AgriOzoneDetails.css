@@ -1,0 +1,172 @@
+.agri-page-container {
+  max-width: 950px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  font-family: Arial, sans-serif;
+  color: #333;
+}
+
+.breadcrumb-hint {
+  font-size: 14px;
+  color: #888;
+  border-bottom: 1px dotted #ccc;
+  margin-bottom: 25px;
+}
+
+.agri-main-title {
+  color: #444;
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 40px;
+}
+
+.agri-section-flex {
+  display: flex;
+  gap: 40px;
+  align-items: center;
+  margin-bottom: 50px;
+}
+
+/* Image carrée 350x350 avec bordure 10px */
+.agri-frame-square {
+  width: 350px;
+  height: 350px;
+  flex-shrink: 0;
+  position: relative;
+  overflow: hidden;
+  border-radius: 50px 15px 50px 15px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.agri-frame-square img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.agri-frame-square::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border: 10px solid #ffffff;
+  border-radius: 50px 15px 50px 15px;
+  pointer-events: none;
+}
+
+.agri-slogan-blue {
+  color: #008cc1;
+  font-style: italic;
+  font-size: 22px;
+  line-height: 1.3;
+  margin-bottom: 20px;
+}
+
+.agri-list {
+  list-style: none;
+  padding: 0;
+}
+
+.agri-list li {
+  margin-bottom: 12px;
+  padding-left: 20px;
+  position: relative;
+  font-size: 15px;
+}
+
+.agri-list li::before {
+  content: "✓";
+  color: #008cc1;
+  position: absolute;
+  left: 0;
+  font-weight: bold;
+}
+
+.agri-description-block {
+  margin-top: 40px;
+  line-height: 1.7;
+}
+
+.agri-info-grid {
+  display: flex;
+  gap: 40px;
+  align-items: center;
+  margin-top: 40px;
+}
+
+.agri-info-box {
+  flex: 1;
+}
+
+/* Bouton Bleu */
+.agri-footer {
+  text-align: center;
+  margin: 50px 0;
+}
+
+.agri-btn-blue {
+  background: linear-gradient(to bottom, #008cc1, #005a80);
+  color: white;
+  border: none;
+  padding: 16px 45px;
+  border-radius: 50px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 5px 0 #003a52;
+}
+
+/* SECTION AVANTAGES BLEUE */
+.agri-advantages-section {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.agri-advantages-card {
+  background-color: #008cc1;
+  color: white;
+  padding: 35px;
+  width: 100%;
+  max-width: 650px;
+  border-radius: 8px;
+}
+
+.agri-advantages-card h3 {
+  font-size: 24px;
+  margin-bottom: 25px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  padding-bottom: 10px;
+}
+
+.adv-group h4 {
+  font-size: 18px;
+  margin: 20px 0 10px 0;
+  text-decoration: underline;
+}
+
+.adv-group ul {
+  list-style: none;
+  padding-left: 10px;
+}
+
+.adv-group li {
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+}
+
+.adv-group li::before {
+  content: '▶';
+  font-size: 12px;
+  margin-right: 10px;
+}
+
+/* Responsive */
+@media (max-width: 850px) {
+  .agri-section-flex,
+  .agri-info-grid {
+    flex-direction: column;
+  }
+}

@@ -1,0 +1,153 @@
+.activite-modern-section {
+  padding: 120px 20px;
+  position: relative;
+  background: #ffffff;
+  overflow: hidden;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.background-blobs {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  z-index: 0;
+}
+
+.blob {
+  position: absolute;
+  width: 400px; height: 400px;
+  filter: blur(80px);
+  opacity: 0.15;
+  border-radius: 50%;
+}
+
+.blob-air { top: 10%; left: 10%; background: #0071e3; }
+.blob-eau { bottom: 10%; right: 10%; background: #00d4ff; }
+.blob-odeur { top: 50%; left: 50%; background: #a855f7; transform: translate(-50%, -50%); opacity: 0.1; }
+
+.activite-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.activite-intro {
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.title-modern {
+  font-size: 3rem;
+  font-weight: 600;
+  color: #0404aa;
+}
+
+.subtitle-modern {
+  font-size: 1.2rem;
+  color: #86868b;
+  margin-top: 10px;
+}
+
+.glass-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+}
+
+.glass-card {
+  flex: 1 1 380px;
+  max-width: 500px;
+  padding: 50px;
+  border-radius: 30px;
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  transition: transform 0.4s cubic-bezier(0.2, 0, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* CARTE AIR */
+.card-air {
+  background: rgba(0, 127, 254, 0.05);
+  box-shadow: 0 20px 40px rgba(0, 113, 227, 0.1);
+}
+
+/* CARTE EAU */
+.card-eau {
+  background: rgba(0, 255, 17, 0.05);
+  box-shadow: 0 20px 40px rgba(0, 212, 255, 0.1);
+}
+
+/* CARTE ODEUR (MAUVE) */
+.card-odeur {
+  background: rgba(168, 85, 247, 0.05);
+  box-shadow: 0 20px 40px rgba(168, 85, 247, 0.1);
+}
+
+.centered-bottom {
+  flex: 0 1 500px; /* Force la 3ème carte à garder sa taille et se centrer */
+}
+
+.glass-card:hover {
+  transform: scale(1.02) translateY(-10px);
+}
+
+.icon-wrapper {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 25px;
+}
+
+.svg-icon {
+  width: 100%;
+  height: 100%;
+  stroke: #004b96;
+}
+
+.card-eau .svg-icon { stroke: #0b8219; }
+.card-odeur .svg-icon { stroke: #7c3aed; } /* Violet pour odeur */
+
+.label-ozone {
+  font-size: 1.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #1d1d1f;
+  margin-bottom: 20px;
+}
+
+.card-description {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: #424245;
+  margin-bottom: 40px;
+  min-height: 120px;
+}
+
+.btn-glass {
+  background: #1d1d1f;
+  color: #fff;
+  border: none;
+  padding: 16px 32px;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: auto;
+}
+
+.btn-glass:hover {
+  background: #0071e3;
+  box-shadow: 0 10px 20px rgba(0, 113, 227, 0.3);
+}
+
+
+@media (max-width: 850px) {
+  .glass-card {
+    flex: 1 1 100%;
+  }
+  .title-modern { font-size: 2.2rem; }
+}

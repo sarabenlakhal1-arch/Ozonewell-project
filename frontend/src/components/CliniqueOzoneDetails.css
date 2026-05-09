@@ -1,0 +1,193 @@
+.clinique-page-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  font-family: Arial, sans-serif;
+  color: #333;
+}
+
+.breadcrumb-hint {
+  font-size: 13px;
+  color: #888;
+  border-bottom: 1px dotted #ccc;
+  margin-bottom: 25px;
+}
+
+.clinique-main-title {
+  font-size: 26px;
+  color: #444;
+  font-weight: bold;
+  margin-bottom: 40px;
+  line-height: 1.4;
+}
+
+.clinique-section-flex {
+  display: flex;
+  gap: 45px;
+  align-items: flex-start;
+  margin-bottom: 50px;
+}
+
+/* Image carrée 350x350 avec bordure blanche 10px */
+.clinique-frame-square {
+  width: 350px;
+  height: 350px;
+  flex-shrink: 0;
+  position: relative;
+  border-radius: 50px 15px 50px 15px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.clinique-frame-square img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.clinique-frame-square::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border: 10px solid #ffffff;
+  border-radius: 50px 15px 50px 15px;
+  pointer-events: none;
+}
+
+.clinique-slogan-blue {
+  color: #008cc1;
+  font-size: 20px;
+  font-style: italic;
+  margin-bottom: 20px;
+}
+
+.clinique-intro-bold {
+  font-weight: bold;
+  font-size: 15px;
+  margin-bottom: 20px;
+  color: #444;
+}
+
+.clinique-list {
+  list-style: none;
+  padding: 0;
+}
+
+.clinique-list li {
+  margin-bottom: 12px;
+  padding-left: 20px;
+  position: relative;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.clinique-list li::before {
+  content: "▶";
+  color: #008cc1;
+  position: absolute;
+  left: 0;
+  font-size: 12px;
+  top: 3px;
+}
+
+.clinique-description-box {
+  background: #f4f7f9;
+  padding: 25px;
+  border-radius: 15px;
+  line-height: 1.7;
+  font-size: 15px;
+  border-left: 5px solid #008cc1;
+  margin-bottom: 40px;
+}
+
+/* Bouton */
+.clinique-footer {
+  text-align: center;
+  margin: 50px 0;
+}
+
+.clinique-btn-blue {
+  background: linear-gradient(to bottom, #008cc1, #005a80);
+  color: white;
+  border: none;
+  padding: 18px 45px;
+  border-radius: 50px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 5px 0 #003a52;
+}
+
+/* Section Avantages Bleue */
+.clinique-advantages-card {
+  background-color: #008cc1;
+  color: white;
+  padding: 40px;
+  border-radius: 12px;
+}
+
+.clinique-adv-title {
+  font-size: 21px;
+  margin-bottom: 30px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  padding-bottom: 15px;
+  text-align: left;
+}
+
+.clinique-adv-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+}
+
+.clinique-adv-list {
+  list-style: none;
+  padding: 0;
+  flex: 1;
+}
+
+.clinique-adv-list li {
+  margin-bottom: 15px;
+  font-size: 16px;
+  display: flex;
+  align-items: flex-start;
+}
+
+.clinique-adv-list li::before {
+  content: "✓";
+  margin-right: 15px;
+  font-weight: bold;
+}
+
+.clinique-image-circle {
+  width: 230px;
+  height: 230px;
+  border-radius: 50%;
+  border: 6px solid white;
+  object-fit: cover;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive */
+@media (max-width: 850px) {
+  .clinique-section-flex,
+  .clinique-adv-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .clinique-frame-square {
+    margin: 0 auto;
+  }
+
+  .clinique-image-circle {
+    margin-top: 20px;
+  }
+
+  .clinique-adv-list li {
+    justify-content: center;
+  }
+}

@@ -1,0 +1,146 @@
+/* Base Style */
+.solutions-modern-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 80px 24px;
+  background-color: #ffffff;
+  color: #1d1d1f;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.solutions-header {
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.hero-title {
+  font-size: 3.2rem;
+  color: #052ca0;
+
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.hero-subtitle {
+  font-size: 1.4rem;
+  color: #86868b;
+}
+
+.modern-section {
+  margin-bottom: 100px;
+}
+
+.section-label {
+  font-size: 2.2rem;
+  font-weight: 600;
+  margin-bottom: 40px;
+  text-align: center;
+  color: #05723f;
+}
+
+/* --- GRILLE CENTRÉE POUR LES ACTIVITÉS --- */
+.modern-centered-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+}
+
+.modern-rect-card {
+  width: 280px; /* Largeur réduite demandée */
+  height: 240px; /* Largeur réduite demandée */
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.rect-image-box {
+  width: 280px; /* Largeur de base */
+  height: 320px; /* Hauteur supérieure à la largeur pour le "presque carré" */
+  border-radius: 18px;
+  overflow: hidden;
+  background: #f5f5f7;
+  border: 1px solid #e5e5e7;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.rect-image-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.modern-rect-card:hover {
+  transform: translateY(-8px);
+}
+
+.rect-text {
+  margin-top: 15px;
+  font-size: 1.1rem;
+  font-weight: 500;
+  text-align: center;
+  color: #1d1d1f;
+}
+
+/* --- SECTION APPLICATIONS (Cercles) --- */
+.modern-circle-flex {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 50px;
+}
+
+.modern-circle-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+}
+
+.circle-outer {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 1px solid #d2d2d7;
+  transition: all 0.4s ease;
+}
+
+.circle-outer img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.modern-circle-card:hover .circle-outer {
+  border-color: #0071e33a;
+  border-width: 5px;
+}
+
+.circle-text {
+  margin-top: 20px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #1d1d1f;
+}
+
+/* --- RESPONSIVE MOBILE 40% --- */
+@media (max-width: 600px) {
+  
+  .modern-rect-card {
+    width: 40%; /* Prend 40% de la largeur comme demandé */
+    min-width: 160px; /* Sécurité pour rester lisible */
+    max-height: 35%;
+  }
+  
+  .rect-image-box {
+    width: 100%; /* S'adapte au parent de 40% */
+    height: calc(100vw * 0.4 * (320 / 280)); /* Maintient le ratio de la hauteur */
+  }
+  
+  .rect-text { font-size: 15px; }
+  .circle-outer { width: 140px; height: 140px; }
+}

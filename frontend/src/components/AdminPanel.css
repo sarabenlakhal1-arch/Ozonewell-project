@@ -1,0 +1,136 @@
+:root {
+  --bg-sidebar: #0f172a;
+  --bg-main: #f8fafc;
+  --text-primary: #1e293b;
+  --text-secondary: #64748b;
+  --blue-primary: #0284c7;
+  --red-danger: #cb2727;
+  --green-save: #11c854;
+}
+
+.ozonewell-admin {
+  display: flex;
+  min-height: 100vh;
+  background-color: var(--bg-main);
+  font-family: 'Inter', sans-serif;
+}
+
+/* SIDEBAR */
+.app-sidebar {
+  width: 260px;
+  background-color: var(--bg-sidebar);
+  color: #fff;
+  padding: 30px 20px;
+}
+
+.brand-header h2 { color: var(--blue-primary); margin-bottom: 5px; }
+.brand-subtitle { font-size: 0.75rem; color: var(--text-secondary); text-transform: uppercase; }
+
+.nav-item {
+  display: flex; align-items: center; gap: 12px; width: 100%;
+  padding: 12px 15px; background: transparent; border: none;
+  color: #94a3b8; cursor: pointer; border-radius: 8px; font-weight: 500;
+  margin-top: 40px;
+}
+.nav-item.active { background-color: rgba(2, 132, 199, 0.15); color: var(--blue-primary); }
+
+/* MAIN CONTENT */
+.app-main-content { flex: 1; padding: 40px 60px; }
+.content-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; }
+
+/* BOUTON AJOUTER (BLEU) */
+.btn-add-main {
+  background-color: var(--blue-primary); color: white; border: none;
+  padding: 10px 20px; border-radius: 6px; cursor: pointer;
+  display: flex; align-items: center; gap: 8px; font-weight: 600;
+}
+
+/* DATA TABLE */
+.data-table-container { background: white; border-radius: 12px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); overflow: hidden; }
+.data-table { width: 100%; border-collapse: collapse; }
+.data-table th { background-color: #f1f5f9; padding: 15px 20px; text-align: left; font-size: 0.75rem; color: var(--text-secondary); }
+.data-table td { padding: 15px 20px; border-bottom: 1px solid #f1f5f9; }
+.col-name { font-weight: 600; color: var(--blue-primary); }
+
+.badge { padding: 4px 10px; border-radius: 20px; font-size: 0.75rem; font-weight: 600; }
+.badge.Ozone { background: #e0f2fe; color: #0369a1; }
+.badge.Purificateur { background: #f0fdf4; color: #166534; }
+
+.col-actions { display: flex; gap: 15px; }
+.btn-icon { background: none; border: none; cursor: pointer; color: var(--text-secondary); }
+.btn-delete:hover { color: var(--red-danger); }
+
+/* --- MODAL & BOUTONS CORRIGÉS --- */
+
+.modal-overlay {
+  position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+  background: rgba(15, 23, 42, 0.6); display: flex; justify-content: center; align-items: center; z-index: 1000;
+}
+
+.modal-content { background: white; width: 500px; border-radius: 12px; padding: 30px; position: relative; }
+
+.modal-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px; }
+
+/* LE BOUTON X EN CERCLE ROUGE */
+.modal-close {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: none;
+  background-color: #ffffff; /* Rouge très clair */
+  color: var(--red-danger); /* Texte rouge */
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.modal-close:hover {
+  background-color: var(--red-danger);
+  color: white;
+  transform: rotate(90deg); /* Petit effet de rotation pro */
+}
+
+.modal-form label { display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 6px; }
+.modal-form input, .modal-form select { width: 100%; padding: 10px; border: 1px solid #e2e8f0; border-radius: 6px; margin-bottom: 15px; }
+.form-row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+
+.modal-footer { display: flex; justify-content: flex-end; gap: 12px; margin-top: 20px; }
+
+.btn-secondary { background: #f1f5f9; border: none; padding: 10px 20px; border-radius: 6px; cursor: pointer; font-weight: 500; }
+
+/* LE BOUTON ENREGISTRER EN VERT */
+.btn-save {
+  background-color: var(--green-save);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.2s;
+}
+
+.btn-save:hover {
+  background-color: #1e9e4d; /* Vert un peu plus foncé au survol */
+}
+
+.file-input-container {
+    margin-top: 5px;
+    margin-bottom: 15px;
+}
+.file-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    background: #f1f5f9;
+    border: 2px dashed #cbd5e1;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}.file-label:hover { border-color: var(--blue-primary); color: var(--blue-primary); }

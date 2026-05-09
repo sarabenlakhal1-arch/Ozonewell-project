@@ -1,0 +1,197 @@
+.salon-page-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  font-family: Arial, sans-serif;
+  color: #333;
+}
+
+.breadcrumb-hint {
+  font-size: 13px;
+  color: #888;
+  border-bottom: 1px dotted #ccc;
+  margin-bottom: 20px;
+}
+
+.salon-main-title {
+  color: #444;
+  font-size: 26px;
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+
+/* Header Flex */
+.salon-header-flex {
+  display: flex;
+  gap: 40px;
+  margin-bottom: 50px;
+}
+
+.salon-frame-square {
+  width: 350px;
+  height: 350px;
+  flex-shrink: 0;
+  position: relative;
+  overflow: hidden;
+  border-radius: 50px 15px 50px 15px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.salon-frame-square.small {
+  width: 300px;
+  height: 300px;
+}
+
+.salon-frame-square img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.salon-frame-square::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  border: 10px solid #ffffff; /* Bordure blanche 10px */
+  border-radius: 50px 15px 50px 15px;
+  pointer-events: none;
+}
+
+.salon-slogan-blue {
+  color: #008cc1;
+  font-style: italic;
+  font-size: 20px;
+  font-weight: 800;
+  margin-bottom: 20px;
+}
+
+.salon-dot-list {
+  list-style: none;
+  padding: 0;
+}
+
+.salon-dot-list li {
+  margin-bottom: 12px;
+  padding-left: 20px;
+  position: relative;
+  font-size: 15px;
+}
+
+.salon-dot-list li::before {
+  content: "•";
+  color: #008cc1;
+  position: absolute;
+  left: 0;
+}
+
+/* HABILLAGE TEXTE (Float) */
+.salon-intro-section {
+  display: block;
+  width: 100%;
+  margin-bottom: 40px;
+}
+
+.salon-image-float-left {
+  float: left;
+  margin-right: 30px;
+  margin-bottom: 10px;
+}
+
+.salon-intro-text p {
+  font-size: 15px;
+  line-height: 1.6;
+  margin-bottom: 15px;
+  text-align: justify;
+}
+
+/* Bouton */
+.salon-center-btn {
+  text-align: center;
+  margin: 40px 0;
+  clear: both; /* Assure que le bouton est sous le texte flottant */
+}
+
+.salon-btn-blue {
+  background: linear-gradient(to bottom, #008cc1, #005a80);
+  color: white;
+  border: none;
+  padding: 18px 45px;
+  border-radius: 50px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 5px 0 #003a52;
+}
+
+/* Détails */
+.salon-sub-title {
+  color: #008cc1;
+  font-size: 19px;
+  margin: 30px 0 15px 0;
+  font-weight: bold;
+}
+
+.salon-detail-block p {
+  font-size: 15px;
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+/* Cadre Bleu final */
+.salon-blue-card {
+  background-color: #008cc1;
+  color: white;
+  padding: 40px;
+  border-radius: 15px;
+  margin-top: 50px;
+}
+
+.salon-card-title {
+  font-size: 20px;
+  border-bottom: 1px solid rgba(255,255,255,0.3);
+  padding-bottom: 15px;
+  margin-bottom: 25px;
+}
+
+.salon-card-flex {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.salon-check-list {
+  list-style: none;
+  padding: 0;
+  flex: 1;
+}
+
+.salon-check-list li {
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+}
+
+.salon-check-list li::before {
+  content: "✓";
+  margin-right: 15px;
+  font-weight: bold;
+}
+
+.salon-circle-frame img {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  border: 5px solid white;
+  object-fit: cover;
+}
+
+/* Clearfix pour le float */
+.salon-intro-section::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+@media (max-width: 850px) {
+  .salon-header-flex, .salon-card-flex { flex-direction: column; }
+  .salon-image-float-left { float: none; display: flex; justify-content: center; margin-right: 0; }
+}

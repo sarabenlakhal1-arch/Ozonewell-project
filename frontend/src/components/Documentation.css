@@ -1,0 +1,209 @@
+/* Configuration de la police Apple System */
+.doc-wrapper {
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Helvetica Neue", Arial, sans-serif;
+  background-color: #f5f5f7;
+  padding: 80px 20px;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* --- EFFET SEMOULE (GRAIN) AU SCROLL --- */
+.grain-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* Génération d'un bruit fractal en SVG pour la légèreté */
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Ffilter id='noiseFilter'%3E%3FfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3F/filter%3E%3Frect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3F/svg%3E");
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.6s ease;
+  z-index: 9999;
+}
+
+/* Activé via JS quand l'utilisateur scrolle */
+.scrolled-grain .grain-overlay {
+  opacity: 0.05; /* Intensité de la semoule */
+}
+
+/* --- HEADER --- */
+.doc-header {
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.doc-header h1 {
+  font-weight: 500; /* Maximum 500 selon votre demande */
+  font-size: 2.8rem;
+  color: #1d1d1f;
+  letter-spacing: -0.015em;
+  margin-bottom: 12px;
+}
+
+.doc-header p {
+  color: #191919;
+  font-size: 1.2rem;
+  font-weight: 400;
+}
+
+/* --- GRILLE --- */
+.doc-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 35px;
+  max-width: 1250px;
+  margin: 0 auto;
+}
+
+/* --- CARTE STYLE APPLE --- */
+.brochure-card {
+  background-color: #ffffff; /* Bleu Apple par défaut */
+  border-radius: 24px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 520px; /* Hauteur fixe pour maîtriser les proportions */
+  transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.02);
+  cursor: pointer;
+}
+
+/* État au survol : Vert Sombre */
+.brochure-card:hover {
+  background-color: #d9d5f1; 
+  transform: translateY(-12px);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+}
+
+/* --- SECTION IMAGE (70%) --- */
+.card-image-container {
+  position: relative;
+  width: 100%;
+  height: 70%; /* L'image prend 70% de la carte */
+  overflow: hidden;
+}
+
+.card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.brochure-card:hover .card-image {
+  transform: scale(1.08);
+}
+
+.card-image-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, transparent 60%, rgba(0,0,0,0.3));
+}
+
+/* --- SECTION TEXTE & BOUTONS (30%) --- */
+.card-content-wrapper {
+  height: 30%; /* Le contenu prend les 30% restants */
+  padding: 20px 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  color: rgb(25, 25, 25);
+  
+  
+}
+
+.card-content {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 15px;
+  
+}
+
+.icon-box {
+  min-width: 32px;
+  height: 32px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon-box svg {
+  width: 18px;
+  stroke: rgb(39, 39, 39);
+}
+
+.brochure-card h3 {
+  font-weight: 500; /* Maximum 500 */
+  font-size: 17px;
+  margin: 0;
+  line-height: 1.2;
+}
+
+/* --- BOUTONS --- */
+.card-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.btn-action {
+  text-decoration: none;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+.btn-action.view {
+  background: rgb(25, 151, 255);
+  color: #ffffff;
+  font-size: 15px;
+  flex-grow: 1;
+  padding: 8px 0;
+}
+
+.btn-action.download {
+  background: rgb(193, 198, 192);
+  color: rgb(15, 15, 15);
+  width: 38px;
+  height: 38px;
+}
+
+.btn-action:hover {
+  transform: translateY(-2px);
+  background: rgb(47, 184, 23);
+  color: #ffffff;
+}
+.btn-action.download:hover {
+  transform: translateY(-2px);
+  background: rgb(169, 169, 169);
+  color: #242424;
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 992px) {
+  .doc-grid { grid-template-columns: repeat(2, 1fr); }
+  .brochure-card { height: 480px; }
+}
+
+@media (max-width: 768px) {
+  .doc-grid { grid-template-columns: 1fr; }
+  .brochure-card { height: 450px; }
+  .doc-header h1 { font-size: 2.2rem; }
+  
+  /* On ajuste un peu pour mobile */
+  .card-image-container { height: 65%; }
+  .card-content-wrapper { height: 35%; }
+}

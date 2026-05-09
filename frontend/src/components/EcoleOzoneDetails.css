@@ -1,0 +1,187 @@
+.school-page-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  font-family: Arial, sans-serif;
+  color: #333;
+}
+
+.breadcrumb-hint {
+  font-size: 13px;
+  color: #888;
+  border-bottom: 1px dotted #ccc;
+  margin-bottom: 20px;
+}
+
+.school-main-title {
+  color: #444;
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 1.3;
+  margin-bottom: 40px;
+}
+
+/* Flexbox Photo/Texte style Industrie */
+.school-section-flex {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+  margin-bottom: 40px;
+}
+
+.school-frame-square {
+  width: 350px;
+  height: 350px;
+  flex-shrink: 0;
+  position: relative;
+  overflow: hidden;
+  border-radius: 50px 15px 50px 15px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.school-frame-square img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.school-frame-square::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  border: 10px solid #ffffff; /* Cadre 10px comme demandé */
+  border-radius: 50px 15px 50px 15px;
+  pointer-events: none;
+}
+
+.school-slogan-blue {
+  color: #008cc1;
+  font-style: italic;
+  font-size: 20px;
+  font-weight: 800;
+  margin-bottom: 20px;
+}
+
+.school-top-list {
+  list-style: none;
+  padding: 0;
+}
+
+.school-top-list li {
+  margin-bottom: 15px;
+  padding-left: 20px;
+  position: relative;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.school-top-list li::before {
+  content: "•";
+  color: #008cc1;
+  position: absolute;
+  left: 0;
+  font-weight: bold;
+}
+
+.school-separator {
+  height: 1px;
+  background: #eee;
+  margin: 30px 0;
+}
+
+/* Bouton centré */
+.school-footer-btn {
+  text-align: center;
+  margin: 40px 0;
+}
+
+.school-btn-blue {
+  background: linear-gradient(to bottom, #008cc1, #005a80);
+  color: white;
+  border: none;
+  padding: 18px 45px;
+  border-radius: 50px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 5px 0 #003a52;
+}
+
+/* Grille de détails avec photo à côté */
+.school-details-grid {
+  display: flex;
+  gap: 40px;
+  margin-top: 40px;
+}
+
+.school-section-header {
+  color: #008cc1;
+  font-size: 22px;
+  margin-bottom: 25px;
+}
+
+.school-sub-item h3 {
+  color: #008cc1;
+  font-size: 18px;
+  margin-top: 25px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 5px;
+}
+
+.school-sub-item p {
+  font-size: 15px;
+  line-height: 1.6;
+  margin-top: 10px;
+}
+
+.small-frame {
+  width: 300px;
+  height: 300px;
+}
+
+/* Bandeau Avantages Bleus */
+.school-advantages-box {
+  background-color: #008cc1;
+  color: white;
+  padding: 40px;
+  border-radius: 15px;
+  margin-top: 50px;
+}
+
+.school-adv-flex {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.school-check-list {
+  list-style: none;
+  padding: 0;
+  flex: 1;
+}
+
+.school-check-list li {
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+}
+
+.school-check-list li::before {
+  content: "✓";
+  margin-right: 15px;
+  font-weight: bold;
+}
+
+.school-circle-frame img {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  border: 5px solid white;
+  object-fit: cover;
+}
+
+@media (max-width: 850px) {
+  .school-section-flex, .school-details-grid, .school-adv-flex {
+    flex-direction: column;
+    align-items: center;
+  }
+}

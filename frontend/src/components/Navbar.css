@@ -1,0 +1,165 @@
+/* Variables de couleurs */
+:root {
+  --nav-bg: #0ca4dbe2;
+  --nav-mobile-bg: #6dc7e8; /* Bleu plus clair pour le mobile */
+  --text-dark: #1e293b;
+  --btn-blue: #0395ca;
+}
+
+.navbar {
+  background: var(--nav-bg);
+  height: 126px; /* Hauteur fixe */
+  display: flex;
+  align-items: center;
+  top: 0;
+  z-index: 2000;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  padding: 0; /* Suppression des paddings inutiles sur la barre */
+}
+
+.navbar-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  padding: 0 25px;
+  display: flex;
+  justify-content: space-between; /* Sépare le logo du menu/liens */
+  align-items: center;
+  height: 100%;
+}
+
+/* AJUSTEMENT LOGO (PC & MOBILE) */
+.navbar-logo, 
+.navbar-logo a {
+  height: 100%; /* Prend toute la hauteur de la navbar */
+  display: flex;
+  align-items: center;
+}
+
+.logo-img {
+  height: 100%; /* S'ajuste exactement aux 126px de la navbar */
+  max-height: 126px; 
+  width: auto;
+  display: block;
+  object-fit: contain; /* Garde les proportions */
+}
+
+/* LIENS NAVIGATION PC */
+.nav-links {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  gap: 35px;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-link-item {
+  text-decoration: none;
+  color: var(--text-dark);
+  font-weight: 600;
+  font-size: 15px;
+  transition: 0.3s;
+}
+
+.nav-link-item:hover {
+  color: rgb(223, 255, 223) ;
+
+}
+
+/* BOUTON CONTACT (RECTANGLE ARRONDI) */
+.nav-btn-contact {
+  background: var(--btn-blue);
+  color: white;
+  padding: 12px 28px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 700;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  display: inline-block;
+}
+
+/* ICONE MENU MOBILE (HAMBURGER) */
+.menu-icon {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between; /* Sépare les lignes du burger */
+  width: 30px;
+  height: 21px;
+  cursor: pointer;
+  z-index: 3000;
+}
+
+.hamburger-line {
+  width: 100%;
+  height: 3px;
+  background-color: var(--text-dark);
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+/* ANIMATION BURGER */
+.menu-icon.open .hamburger-line:nth-child(1) { transform: translateY(9px) rotate(45deg); }
+.menu-icon.open .hamburger-line:nth-child(2) { opacity: 0; }
+.menu-icon.open .hamburger-line:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
+
+/* RESPONSIVE MOBILE */
+@media (max-width: 850px) {
+  .menu-icon { 
+    display: flex; 
+  }
+
+  .nav-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 2500;
+  }
+
+  .nav-links {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 280px;
+    height: 100vh;
+    background: var(--nav-mobile-bg);
+    flex-direction: column;
+    padding: 100px 30px;
+    gap: 10px;
+    transition: right 0.4s ease;
+    z-index: 2800;
+    box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+  }
+
+  .nav-links.nav-active {
+    right: 0;
+  }
+
+  /* ÉLIMINATION DES BORDURES ET AJUSTEMENT LARGEUR */
+  .nav-links li {
+    width: 100%;
+    border-bottom: none;
+  }
+
+  .nav-link-item {
+    display: block;
+    padding: 15px 0;
+    font-size: 18px;
+    text-align: center;
+    width: 100%;
+  }
+
+  .nav-btn-contact {
+    margin-top: 20px;
+    width: 100%;
+    text-align: center;
+  }
+
+  /* LOGO MOBILE PARFAITEMENT AJUSTÉ À LA NAVBAR (126px) */
+  .logo-img {
+    height: 126px; /* Correction : identique à la navbar */
+  }
+}

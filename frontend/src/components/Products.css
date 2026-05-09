@@ -1,0 +1,196 @@
+/* STYLE GÉNÉRAL */
+.products-page {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background-color: #f5f5f7;
+  color: #1d1d1f;
+  padding-bottom: 100px;
+}
+
+.products-header {
+  text-align: center;
+  padding: 80px 20px 40px;
+}
+
+.products-header h1 {
+  font-size: 42px;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+.products-header p {
+  font-size: 20px;
+  color: #86868b;
+}
+
+/* NOUVELLE SECTION INTRO (BLEUE ET BLANCHE) */
+.intro-text-section {
+  max-width: 1000px;
+  margin: 0 auto 60px;
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+}
+
+.intro-blue-banner {
+  background-color: #5b89c0; /* Bleu du catalogue */
+  padding: 15px 30px;
+  color: white;
+}
+
+.intro-blue-banner h2 {
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0;
+  letter-spacing: 0.5px;
+}
+
+.intro-content {
+  padding: 30px;
+  line-height: 1.6;
+}
+
+.intro-content p {
+  font-size: 16px;
+  color: #424245;
+  margin-bottom: 15px;
+}
+
+.intro-highlight {
+  font-weight: 700;
+  color: #1d1d1f !important;
+  border-top: 1px solid #f5f5f7;
+  padding-top: 15px;
+}
+
+/* GRILLE ET TITRES DE SECTION */
+.product-section {
+  max-width: 1200px;
+  margin: 0 auto 60px;
+  padding: 0 20px;
+}
+
+.section-title {
+  font-size: 28px;
+  font-weight: 600;
+  margin-bottom: 30px;
+  color: #5b89c0; /* Bleu cohérent */
+  text-transform: uppercase;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+/* CARTE PRODUIT */
+.product-card {
+  background: white;
+  border-radius: 18px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.product-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.1);
+}
+
+.product-image-container {
+  position: relative;
+  height: 240px;
+  background: #fcfcfc;
+  border-radius: 12px;
+  margin-bottom: 15px;
+  overflow: hidden;
+}
+
+.product-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 15px;
+}
+
+/* HOVER EFFECT CERCLES */
+.product-hover-info {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: rgba(255, 255, 255, 0.96);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  padding: 10px;
+}
+
+.product-card:hover .product-hover-info {
+  opacity: 1;
+}
+
+.info-circle {
+  width: 70px; height: 70px;
+  border-radius: 50%;
+  background: #0071e3;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 9px;
+  box-shadow: 0 4px 10px rgba(0,113,227,0.2);
+}
+
+.info-circle.model-name {
+  background: #1d1d1f;
+  width: 85px; height: 85px;
+  font-weight: 700;
+  font-size: 10px;
+}
+
+.quote-badge {
+  position: absolute;
+  bottom: 15px;
+  background: #0071e3;
+  color: white;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+/* SECTION TECHNIQUE (BAS DE PAGE) */
+.tech-info-section {
+  padding: 80px 5%;
+  background-color: white;
+}
+
+.tech-info-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.tech-info-card {
+  background: #f5f5f7;
+  border-radius: 15px;
+  padding: 35px 20px;
+  text-align: center;
+}
+
+.tech-icon-wrapper {
+  width: 45px; height: 45px;
+  color: #0071e3;
+  margin: 0 auto 20px;
+}
+
+.tech-title-main { font-size: 20px; font-weight: 800; margin-bottom: 5px; }
+.tech-subtitle { font-size: 11px; font-weight: 700; color: #86868b; margin-bottom: 12px; }
+.tech-description { font-size: 13px; line-height: 1.5; color: #515154; }

@@ -1,0 +1,162 @@
+/* Mise en page globale avec marges automatiques (Centrage horizontal) */
+.hotel-page-centered {
+  max-width: 900px; /* Largeur réduite pour ressembler aux photos */
+  margin: 0 auto;   /* Marges gauche/droite automatiques */
+  padding: 60px 20px;
+  text-align: justify; /* Aligne tout le texte au centre */
+  font-family: 'Arial', sans-serif;
+}
+
+/* En-tête */
+.hotel-title-top {
+  font-size: 28px;
+  color: #333;
+  font-weight: bold;
+  margin-bottom: 20px;
+  line-height: 1.3;
+}
+
+.hotel-slogan-main {
+  color: #008cc1;
+  font-size: 22px;
+  font-style: italic;
+  margin-bottom: 50px;
+  font-weight: 600;
+}
+
+/* Section corps de texte */
+.hotel-body-subtitle {
+  font-size: 20px;
+  color: #444;
+  margin-bottom: 40px;
+  text-transform: uppercase;
+}
+
+.hotel-text-block-centered {
+  text-align: justify;
+}
+
+.hotel-item {
+  margin-bottom: 35px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hotel-item h4 {
+  color: #008cc1;
+  font-size: 18px;
+  margin-bottom: 12px;
+  text-decoration: underline;
+}
+
+.hotel-item p {
+  font-size: 16px;
+  line-height: 1.8;
+  color: #555;
+}
+
+/* Image au centre avec cadre 10px */
+.hotel-central-image {
+  margin: 40px auto;
+  display: flex;
+  justify-content: center;
+}
+
+.white-frame-10px {
+  width: 100%;
+  max-width: 500px; /* Taille contrôlée */
+  border-radius: 40px 10px 40px 10px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+  border: 10px solid #ffffff; /* Bordure blanche épaisse comme les photos */
+}
+
+.white-frame-10px img {
+  width: 100%;
+  display: block;
+}
+
+/* Bouton */
+/* Bouton parfaitement centré */
+.hotel-action-centered {
+  margin: 50px 0;
+  display: flex;         /* Active le mode flexbox */
+  justify-content: center; /* Centre le bouton horizontalement sur toute la largeur */
+  width: 100%;           /* S'assure que le conteneur prend toute la place */
+}
+
+.hotel-btn-main {
+  background: #008cc1;
+  color: white;
+  border: none;
+  padding: 18px 45px;
+  border-radius: 50px;
+  font-weight: bold;
+  font-size: 18px;
+  cursor: pointer;
+  box-shadow: 0 5px 15px rgba(0, 140, 193, 0.3);
+  display: block;        /* Évite les comportements inline imprévus */
+}
+
+/* Bandeau Avantages Bleus */
+.hotel-benefits-blue-card {
+  background-color: #008cc1;
+  color: white;
+  padding: 40px;
+  border-radius: 20px;
+  text-align: left; /* La liste reste alignée à gauche pour la lisibilité */
+}
+
+.hotel-benefits-title {
+  font-size: 20px;
+  text-align: center;
+  margin-bottom: 30px;
+  border-bottom: 1px solid rgba(255,255,255,0.3);
+  padding-bottom: 15px;
+}
+
+.hotel-benefits-grid {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.hotel-list-check {
+  list-style: none;
+  padding: 0;
+  flex: 1;
+}
+
+.hotel-list-check li {
+  margin-bottom: 12px;
+  font-size: 16px;
+  display: flex;
+  align-items: flex-start;
+}
+
+.hotel-list-check li::before {
+  content: "✓";
+  margin-right: 15px;
+  font-weight: bold;
+}
+
+.hotel-circle-img {
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  border: 5px solid white;
+  object-fit: cover;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hotel-benefits-grid {
+    flex-direction: column;
+    text-align: justify;
+  }
+  .hotel-list-check li {
+    justify-content: center;
+  }
+}

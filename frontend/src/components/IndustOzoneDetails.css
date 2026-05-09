@@ -1,0 +1,212 @@
+.indust-page-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  font-family: Arial, sans-serif;
+  color: #333;
+}
+
+.breadcrumb-hint {
+  font-size: 14px;
+  color: #888;
+  border-bottom: 1px dotted #ccc;
+  margin-bottom: 20px;
+}
+
+.indust-main-title {
+  color: #555;
+  font-size: 26px;
+  margin-bottom: 40px;
+}
+
+/* Flexbox pour aligner photo et texte */
+.indust-section-flex {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+  margin-bottom: 60px;
+}
+
+/* Carré 350x350 avec bordure 10px */
+.indust-frame-square {
+  width: 350px;
+  height: 350px;
+  flex-shrink: 0;
+  position: relative;
+  overflow: hidden;
+  border-radius: 50px 15px 50px 15px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.indust-frame-square img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.indust-frame-square::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border: 10px solid #ffffff;
+  border-radius: 50px 15px 50px 15px;
+  pointer-events: none;
+}
+
+/* Typographie */
+.indust-slogan-blue {
+  color: #008cc1;
+  font-style: italic;
+  font-size: 22px;
+  font-weight: 800;
+  line-height: 1.3;
+  margin-bottom: 20px;
+}
+
+.indust-list {
+  list-style: none;
+  padding: 0;
+}
+
+.indust-list li {
+  margin-bottom: 10px;
+  padding-left: 20px;
+  position: relative;
+  font-size: 15px;
+}
+
+.indust-list li::before {
+  content: "•";
+  color: #008cc1;
+  position: absolute;
+  left: 0;
+  font-weight: bold;
+}
+
+.indust-separator {
+  height: 1px;
+  background: #eee;
+  margin: 40px 0;
+}
+
+.indust-slogan-large {
+  color: #008cc1;
+  text-align: center;
+  font-size: 24px;
+  font-style: italic;
+  margin-bottom: 50px;
+}
+
+.indust-info-grid {
+  display: flex;
+  gap: 40px;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.indust-info-box h3 {
+  color: #008cc1;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+  font-size: 20px;
+}
+
+.indust-info-box p {
+  font-size: 15px;
+  line-height: 1.6;
+  margin-bottom: 10px;
+}
+
+.air-treatment {
+  margin-top: 30px;
+  background: #f9f9f9;
+  padding: 20px;
+  border-radius: 15px;
+}
+
+/* Bouton Bleu */
+.indust-footer {
+  text-align: center;
+  margin-top: 60px;
+}
+
+.indust-btn-blue {
+  background: linear-gradient(to bottom, #008cc1, #005a80);
+  color: white;
+  border: none;
+  padding: 18px 40px;
+  border-radius: 50px;
+  font-weight: bold;
+  cursor: pointer;
+  text-transform: uppercase;
+  box-shadow: 0 5px 0 #003a52;
+}
+
+/* Mobile */
+@media (max-width: 800px) {
+  .indust-section-flex,
+  .indust-info-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+/* Section Avantages en bas de page */
+.indust-advantages-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+  padding-bottom: 40px;
+}
+
+.indust-advantages-box {
+  background-color: #008cc1; /* Le bleu de la photo */
+  color: white;
+  padding: 30px 50px;
+  width: 100%;
+  max-width: 600px;
+  border-radius: 5px; /* Bord légèrement arrondi comme sur l'image */
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.indust-advantages-box h3 {
+  font-size: 22px;
+  margin-bottom: 25px;
+  font-weight: bold;
+}
+
+.indust-advantages-box ul {
+  list-style: none;
+  padding: 0;
+}
+
+.indust-advantages-box li {
+  font-size: 18px;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  font-weight: 500;
+}
+
+/* Création de la flèche (chevron) avant chaque texte */
+.indust-advantages-box li::before {
+  content: '';
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-right: 3px solid white;
+  border-bottom: 3px solid white;
+  transform: rotate(-45deg); /* Forme de flèche vers la droite */
+  margin-right: 20px;
+}
+
+/* Responsive */
+@media (max-width: 650px) {
+  .indust-advantages-box {
+    padding: 20px;
+    margin: 0 10px;
+  }
+}

@@ -1,0 +1,60 @@
+.top-bar {
+  /* On garde tes styles de base */
+  background-color: #26d273; 
+  padding: 10px 0;
+  font-size: 14px;
+}
+
+.top-bar-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  
+  /* ALIGNEMENT : Tout sur une seule ligne et centré verticalement */
+  display: flex;
+  justify-content: space-between;
+  align-items: center; 
+}
+
+.top-group-contacts, 
+.top-group-info {
+  /* Aligne l'intérieur de chaque groupe sur une ligne */
+  display: flex;
+  align-items: center; 
+  gap: 20px; 
+}
+
+.contact-item, 
+.info-item {
+  /* Aligne l'icône avec son texte sur la même ligne */
+  display: flex;
+  align-items: center; 
+  gap: 8px;
+  font-weight: 600;
+  color: rgb(76, 75, 75);
+  text-decoration: none;
+}
+
+.contact-icon {
+  width: 16px;
+  height: 16px;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+/* On garde ta classe spécifique pour le gras */
+.bold-text {
+  font-weight: bold;
+}
+
+/* Garde les coordonnées propres sur mobile */
+@media (max-width: 900px) {
+  .top-bar-container {
+    flex-direction: column;
+    gap: 8px;
+    text-align: center;
+  }
+  .hide-mobile {
+    display: none;
+  }
+}
