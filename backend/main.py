@@ -10,19 +10,11 @@ from typing import Optional
 
 app = FastAPI()
 
-# 1. CONFIGURATION DE SÉCURITÉ (CORS) - CONNEXION AVEC VERCEL
-# C'est ici qu'on autorise ton site Vercel à communiquer avec ton API Render
-origins = [
-#    "http://localhost:5173",                   # Pour tes tests locaux
-    "https://ozonewell-project.vercel.app",    # TON LIEN VERCEL
-    "https://salvage-factual-stonework.ngrok-free.dev",
-]
-
+# 1. CONFIGURATION DE SÉCURITÉ ET DOSSIER IMAGES
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=origins,                     # On utilise la liste définie au-dessus
-    allow_credentials=True,
-    allow_methods=["*"],                       # Autorise GET, POST, PUT, DELETE
+    allow_origins=["*"],
+    allow_methods=["*"],
     allow_headers=["*"],
 )
 
@@ -30,7 +22,6 @@ UPLOAD_DIR = "uploads"
 if not os.path.exists(UPLOAD_DIR):
     os.makedirs(UPLOAD_DIR)
 
-# Montage du dossier pour rendre les photos accessibles via l'URL
 app.mount("/uploads", StaticFiles(directory=UPLOAD_DIR), name="uploads")
 
 # 2. CONFIGURATION DE LA BASE DE DONNÉES
@@ -42,17 +33,21 @@ def get_db_connection():
 @app.on_event("startup")
 def startup():
     conn = get_db_connection()
+    # Création de la table si elle n'existe pas
     conn.execute('''CREATE TABLE IF NOT EXISTS products 
                  (id INTEGER PRIMARY KEY AUTOINCREMENT, 
                   name TEXT, power TEXT, volume TEXT, category TEXT, image_url TEXT)''')
+    
+    # Sécurité : Vérifier si la colonne image_url existe (au cas où la table était ancienne)
     try:
         conn.execute('SELECT image_url FROM products LIMIT 1')
     except sqlite3.OperationalError:
         conn.execute('ALTER TABLE products ADD COLUMN image_url TEXT')
+    
     conn.commit()
     conn.close()
 
-# 3. MODÈLES
+# 3. MODÈLES POUR LE CHAT ET LE LOGIN
 class ChatMessage(BaseModel):
     text: str
 
@@ -79,17 +74,16 @@ X = vectorizer.fit_transform(questions)
 
 # 5. LES ROUTES (ENDPOINTS)
 
-@app.get("/")
-def home():
-    return {"message": "Serveur Ozonewell API en ligne !"}
-
+# --- Authentification ---
 @app.post("/api/login")
 async def login(data: LoginRequest):
+    # Identifiants en dur pour le stage (Simple et efficace)
     if data.username == "admin" and data.password == "ozonewell2026":
         return {"status": "success", "token": "fake-jwt-token-for-session"}
     else:
         raise HTTPException(status_code=401, detail="Nom d'utilisateur ou mot de passe incorrect")
 
+# --- Chatbot ---
 @app.post("/chat")
 async def chat(msg: ChatMessage):
     user_vec = vectorizer.transform([msg.text])
@@ -98,6 +92,8 @@ async def chat(msg: ChatMessage):
     if similarities[0][best_match_idx] > 0.1:
         return {"reply": knowledge_base[best_match_idx]["a"]}
     return {"reply": "Je ne suis pas sûr de comprendre. Pouvez-vous reformuler ?"}
+
+# --- Admin Panel (CRUD) ---
 
 @app.get("/api/products")
 def get_products():
@@ -116,12 +112,11 @@ async def add_product(
 ):
     image_url = ""
     if file and file.filename:
-        safe_filename = file.filename.replace(" ", "_")
-        file_path = os.path.join(UPLOAD_DIR, safe_filename)
+        file_path = os.path.join(UPLOAD_DIR, file.filename)
         content = await file.read()
         with open(file_path, "wb") as f:
             f.write(content)
-        image_url = f"/uploads/{safe_filename}"
+        image_url = f"http://127.0.0.1:8000/uploads/{file.filename}"
 
     conn = get_db_connection()
     conn.execute('INSERT INTO products (name, power, volume, category, image_url) VALUES (?, ?, ?, ?, ?)',
@@ -141,12 +136,11 @@ async def update_product(
 ):
     image_url = None
     if file and file.filename:
-        safe_filename = file.filename.replace(" ", "_")
-        file_path = os.path.join(UPLOAD_DIR, safe_filename)
+        file_path = os.path.join(UPLOAD_DIR, file.filename)
         content = await file.read()
         with open(file_path, "wb") as f:
             f.write(content)
-        image_url = f"/uploads/{safe_filename}"
+        image_url = f"http://127.0.0.1:8000/uploads/{file.filename}"
 
     conn = get_db_connection()
     if image_url:
@@ -166,3 +160,7 @@ def delete_product(product_id: int):
     conn.commit()
     conn.close()
     return {"status": "deleted"}
+
+if __name__ == "__main__":
+    import uvicorn
+    uvicorn.run(app, host="127.0.0.1", port=8000)
